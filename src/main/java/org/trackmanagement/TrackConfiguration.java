@@ -16,4 +16,9 @@ public class TrackConfiguration {
 		return allSessions;
 		
 	}
+
+	public static final LocalTime lunchTime = LocalTime.of(12, 0);
+	public static final LocalTime trackCutOffTime = LocalTime.of(16, 0);
+	public static final LocalTime networkingMaxCutOffTime = LocalTime.of(17, 0);
+	public static final LocalTime trackStartTime = LocalTime.of(9, 0);
 }

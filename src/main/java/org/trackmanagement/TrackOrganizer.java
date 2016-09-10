@@ -15,18 +15,22 @@ public class TrackOrganizer {
 		int day = 1;
 		while(listIterator.hasNext()) {
 			Track track = new Track("Track "+ day);
-			List<Talk> scheduledEvents = new ArrayList<Talk>();
-			for (Session currentSession : allSessions) {
-				
-				talkList.forEach(allotTalksForSession(scheduledEvents, currentSession));
-				talkList.removeIf(event -> event.isScheduled());
-				scheduledEvents.add(currentSession.getBreakEvent());
-			}
+			List<Talk> scheduledEvents = findScheduledEventsForTrack(talkList, allSessions);
 			track.setTalks(scheduledEvents);
 			day++;
 			conference.addTrack(track);
 		}
 		return conference;
+	}
+
+	private static List<Talk> findScheduledEventsForTrack(List<Talk> talkList, List<Session> allSessions) {
+		List<Talk> scheduledEvents = new ArrayList<Talk>();
+		for (Session currentSession : allSessions) {
+			talkList.forEach(allotTalksForSession(scheduledEvents, currentSession));
+			talkList.removeIf(event -> event.isScheduled());
+			scheduledEvents.add(currentSession.getBreakEvent());
+		}
+		return scheduledEvents;
 	}
 
 	public static Consumer<Talk> allotTalksForSession(List<Talk> scheduledEvents, Session currentSession) {
