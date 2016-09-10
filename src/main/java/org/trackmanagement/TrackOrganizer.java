@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.function.Consumer;
 
+/**
+ * Organize all talks to tracks and schedule for events.
+ * @author vijay
+ *
+ */
 public class TrackOrganizer {
 
 	public static Conference organizeTalks(List<Talk> talkList) {

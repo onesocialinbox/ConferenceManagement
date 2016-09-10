@@ -15,7 +15,12 @@ import org.trackmanagement.Talk;
 import org.trackmanagement.Track;
 import org.trackmanagement.TrackConfiguration;
 import org.trackmanagement.TrackOrganizer;
-
+/**
+ * 1. Test for talks count
+ * 2. Test for start/break time
+ * @author vijay
+ *
+ */
 public class EventsTimeTest {
 
 	private Conference scheduledConference;

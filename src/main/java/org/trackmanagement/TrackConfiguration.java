@@ -3,7 +3,11 @@ package org.trackmanagement;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Session Configuration and constants.
+ * @author vijay
+ *
+ */
 public class TrackConfiguration {
 	
 	public static List<Session> getAllSessions() {

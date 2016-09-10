@@ -2,6 +2,11 @@ package org.trackmanagement;
 
 import java.time.LocalTime;
 
+/**
+ * Morning session start/endtime  adds break event (i.e Talk). 
+ * @author vijay
+ *
+ */
 public class MorningSession extends Session {
 	
 	public MorningSession(LocalTime startTime, LocalTime endTime) {

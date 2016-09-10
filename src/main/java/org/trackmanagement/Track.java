@@ -2,6 +2,11 @@ package org.trackmanagement;
 
 import java.util.List;
 
+/**
+ * Track object holds details about all talks including lunch/networking breaks. 
+ * @author vijay
+ *
+ */
 public class Track {
 	
 	private String trackName;

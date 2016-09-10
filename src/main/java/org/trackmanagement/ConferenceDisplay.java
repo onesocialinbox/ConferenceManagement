@@ -4,6 +4,11 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * Conference console outputter 
+ * @author vijay
+ *
+ */
 public class ConferenceDisplay {
 
 	public static void printConferenceDetails(Conference conference) {

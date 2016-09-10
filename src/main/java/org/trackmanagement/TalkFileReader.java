@@ -7,6 +7,11 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Read and parse talks details from file to Talk list objects. 
+ * @author vijay
+ *
+ */
 public class TalkFileReader {
 
 	public static List<Talk> readTalksFromFile(String fileName) {
@@ -31,6 +36,7 @@ public class TalkFileReader {
 	
 		} catch (IOException e) {
 			e.printStackTrace();
+			throw new RuntimeException("Input file is not in the right format", e);
 		}
 		return talks;
 	}

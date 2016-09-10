@@ -2,6 +2,11 @@ package org.trackmanagement;
 
 import java.time.LocalTime;
 
+/**
+ * Evening Session which includes break event (i.e Talk) 
+ * @author vijay
+ *
+ */
 public class EveningSession extends Session {
 	
 	public EveningSession(LocalTime startTime, LocalTime endTime) {

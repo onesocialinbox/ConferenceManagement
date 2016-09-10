@@ -20,7 +20,11 @@ import org.trackmanagement.ConferenceDisplay;
 import org.trackmanagement.Talk;
 import org.trackmanagement.TalkFileReader;
 import org.trackmanagement.TrackOrganizer;
-
+/**
+ * Tests multiple sample input and sample output.
+ * @author vijay
+ *
+ */
 @RunWith(Parameterized.class)
 public class TalksFileContentsTest {
 

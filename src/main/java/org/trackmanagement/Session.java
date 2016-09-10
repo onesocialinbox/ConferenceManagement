@@ -2,7 +2,12 @@ package org.trackmanagement;
 
 import java.time.LocalTime;
 import java.util.List;
-
+/**
+ * Session is class which typically has morning and evening session.
+ * and has allEvents. 
+ * @author vijay
+ *
+ */
 public abstract class Session {
 	
 	private LocalTime startTime;
