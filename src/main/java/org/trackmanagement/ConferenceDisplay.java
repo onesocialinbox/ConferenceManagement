@@ -1,5 +1,7 @@
 package org.trackmanagement;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ConferenceDisplay {
@@ -13,15 +15,23 @@ public class ConferenceDisplay {
 		StringBuilder outputter = new StringBuilder();
 		List<Track> tracks = conference.getTracks();
 		for (Track track : tracks) {
-			outputter.append(("Name: " + track.getTrackName())).append("\n");
+			outputter.append((track.getTrackName() + ":")).append("\n");
 			List<Talk> talks = track.getTalks();
 			for (Talk talk : talks) {
-				outputter.append(talk.getStartTime()).append(" ")
-						.append(talk.getTitle()).append(" ")
-						.append(talk.getDuration()).append("\n");
+				outputter.append(formatTimeWithAmPm(talk.getStartTime())).append(" ").append(talk.getTitle())
+						.append(" ").append(formatDuration(talk)).append("\n");
 			}
 		}
 		return outputter;
+	}
+
+	private static String formatDuration(Talk talk) {
+		return talk.getTitle().equals(TrackConfiguration.NETWORKING_EVENT)
+				|| talk.getTitle().equals(TrackConfiguration.LUNCH_EVENT) ? "" : talk.getDuration() + "min";
+	}
+
+	private static String formatTimeWithAmPm(LocalTime time) {
+		return time.format(DateTimeFormatter.ofPattern("hh:mma"));
 	}
 
 }

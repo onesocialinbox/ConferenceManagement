@@ -38,6 +38,8 @@ public class TalksFileContentsTest {
 				.asList(new Object[][] { { "sampleInput.txt", "sampleOutput.txt" }, 
 					{ "sampleInputReordered1.txt", "sampleOutputReordered1.txt" },
 					{ "sampleInputReordered2.txt", "sampleOutputReordered2.txt" },
+					{ "sampleInputReordered3.txt", "sampleOutputReordered3.txt" },
+					{ "sampleInputReordered4.txt", "sampleOutputReordered4.txt" },
 					{ "sampleInputFewTalks.txt", "sampleOutputFewTalks.txt" }});
 	}
 

@@ -9,7 +9,7 @@ public class MorningSession extends Session {
 	}
 
 	public Talk getBreakEvent() {
-		Talk lunchEvent = new Talk("Lunch Event", 60);
+		Talk lunchEvent = new Talk(TrackConfiguration.LUNCH_EVENT, 60);
 		lunchEvent.setStartTime(LocalTime.of(12, 0));
 		return lunchEvent;
 	}

@@ -19,6 +19,7 @@ import org.trackmanagement.TrackOrganizer;
 public class EventsTimeTest {
 
 	private Conference scheduledConference;
+
 	@Before
 	public void setup() {
 		List<Talk> sampleTalks = loadSampleTalks();
@@ -26,20 +27,18 @@ public class EventsTimeTest {
 	}
 
 	@Test
-	public void testTracksCount() {
-		List<Track> allTracks = scheduledConference.getTracks();
-		assertEquals("Track count doesn't match", 2, allTracks.size());
-	}
-
-	@Test
 	public void testTalksCount() {
 		List<Track> allTracks = scheduledConference.getTracks();
-		int totalTalksCount = 0;
-		for (Track track : allTracks) {
-			totalTalksCount += track.getTalks().size();
-		}
-		int totalEventsCount = 19 + 2 + 2; // talks, lunch, networking
-		assertEquals("Talks count doesn't match", totalEventsCount, totalTalksCount);
+		//Count of all tracks excluding networking and lunch event
+		//for each track. 
+		long allTracksCount = allTracks.stream()
+				.flatMap(track -> track.getTalks().stream()
+				.filter(talk -> !(talk.getTitle().equals(TrackConfiguration.NETWORKING_EVENT)
+								|| talk.getTitle().equals(TrackConfiguration.LUNCH_EVENT))))
+				.count();
+		
+		int totalEventsCount = 19; // lunch, networking skipped
+		assertEquals("Talks count doesn't match", totalEventsCount, allTracksCount);
 	}
 
 	@Test
@@ -49,40 +48,36 @@ public class EventsTimeTest {
 			checkTrackStartTime(track);
 			checkBreakEventsPresent(track);
 			checkBreakEventsOnTime(track);
-
 		}
 
 	}
-
+	
 	private void checkTrackStartTime(Track track) {
 		LocalTime firstTalkStartTime = track.getTalks().get(0).getStartTime();
-		assertTrue("Track Start time not at 9", firstTalkStartTime.compareTo(TrackConfiguration.trackStartTime) ==0);
+		assertTrue("Track Start time not at 9", firstTalkStartTime.compareTo(TrackConfiguration.TRACK_START_TIME) == 0);
 	}
 
 	private void checkBreakEventsPresent(Track track) {
 		List<Talk> talks = track.getTalks();
-		final String networkingTitle = "Networking Event";
-		final String lunchTitle = "Lunch Event";
-		
+
 		Optional<Talk> networkingEvent = talks.stream().filter(talk -> {
-			return talk.getTitle().equals(networkingTitle);
+			return talk.getTitle().equals(TrackConfiguration.NETWORKING_EVENT);
 		}).findAny();
 		Optional<Talk> lunchEvent = talks.stream().filter(talk -> {
-			return talk.getTitle().equals(lunchTitle);
+			return talk.getTitle().equals(TrackConfiguration.LUNCH_EVENT);
 		}).findAny();
-		assertTrue(networkingTitle + " is not present", networkingEvent.isPresent());
-		assertTrue(lunchTitle + " is not present", lunchEvent.isPresent());
-		
+		assertTrue(TrackConfiguration.NETWORKING_EVENT + " is not present", networkingEvent.isPresent());
+		assertTrue(TrackConfiguration.LUNCH_EVENT + " is not present", lunchEvent.isPresent());
 
 	}
+
 	private void checkBreakEventsOnTime(Track track) {
 		List<Talk> talks = track.getTalks();
-		final String networkingTitle = "Networking Event";
-		checkNetworkingTime(talks, networkingTitle, TrackConfiguration.trackCutOffTime, TrackConfiguration.networkingMaxCutOffTime);
+		checkNetworkingTime(talks, TrackConfiguration.NETWORKING_EVENT, TrackConfiguration.TRACK_CUTOFF_TIME,
+				TrackConfiguration.NETWORKING_CUTOFF_TIME);
 
-		final String lunchTitle = "Lunch Event";
-		checkLunchTime(talks, lunchTitle, TrackConfiguration.lunchTime);
-		
+		checkLunchTime(talks, TrackConfiguration.LUNCH_EVENT, TrackConfiguration.LUNCH_TIME);
+
 	}
 
 	private void checkNetworkingTime(List<Talk> talks, final String networkingTitle, LocalTime four, LocalTime five) {
@@ -90,8 +85,8 @@ public class EventsTimeTest {
 			return talk.getTitle().equals(networkingTitle);
 		}).findAny();
 		LocalTime eventStartTime = networkingEvent.get().getStartTime();
-		assertTrue(networkingTitle +" time is before four", eventStartTime.isAfter(four ));
-		assertTrue(networkingTitle +" time is after five", eventStartTime.compareTo(five) <=0);
+		assertTrue(networkingTitle + " time is before four", eventStartTime.isAfter(four));
+		assertTrue(networkingTitle + " time is after five", eventStartTime.compareTo(five) <= 0);
 	}
 
 	private void checkLunchTime(List<Talk> talks, final String title, LocalTime noon) {
@@ -99,7 +94,7 @@ public class EventsTimeTest {
 			return talk.getTitle().equals(title);
 		}).findAny();
 		LocalTime eventStartTime = lunchEvent.get().getStartTime();
-		assertTrue(title +" time incorrect", eventStartTime.compareTo(noon) ==0);
+		assertTrue(title + " time incorrect", eventStartTime.compareTo(noon) == 0);
 	}
 
 	private List<Talk> loadSampleTalks() {

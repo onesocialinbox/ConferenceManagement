@@ -9,7 +9,7 @@ public class EveningSession extends Session {
 	}
 	
 	public Talk getBreakEvent() {
-		Talk networkingEvent = new Talk("Networking Event", 60);
+		Talk networkingEvent = new Talk(TrackConfiguration.NETWORKING_EVENT, 0);
 		networkingEvent.setStartTime(LocalTime.of(17, 0));
 		return networkingEvent;
 	}

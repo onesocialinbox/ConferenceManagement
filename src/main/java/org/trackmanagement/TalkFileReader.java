@@ -17,14 +17,16 @@ public class TalkFileReader {
 					Charset.defaultCharset());
 	
 			for (String line : lines) {
-				String[] talkAndDuration = line.split(ConferenceManagementApp.FILE_DELIMIT);
+				String durationInfo = line.substring(line.lastIndexOf(TrackConfiguration.FILE_DELIMIT)+1);
+				String talkTitle = line.substring(0, line.lastIndexOf(TrackConfiguration.FILE_DELIMIT));
 				int duration = 0;
-				if ("lightning".equalsIgnoreCase(talkAndDuration[1])) {
+				if ("lightning".equalsIgnoreCase(durationInfo)) {
 					duration = 5;
 				} else {
-					duration = Integer.parseInt(talkAndDuration[1]);
+					String durationValue = durationInfo.replace("min", "");
+					duration = Integer.parseInt(durationValue);
 				}
-				talks.add(new Talk(talkAndDuration[0], duration));
+				talks.add(new Talk(talkTitle, duration));
 			}
 	
 		} catch (IOException e) {

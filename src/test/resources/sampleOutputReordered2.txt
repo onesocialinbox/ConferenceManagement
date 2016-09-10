@@ -1,25 +1,28 @@
-Name: Track 1
-09:00 Sit Down and Write 30
-09:30 Overdoing it in Python 45
-10:15 Rails for Python Developers 5
-10:20 Communicating Over Distance 60
-11:20 Lua for the Masses 30
-12:00 Lunch Event 60
-13:00 Ruby on Rails Legacy App Maintenance 60
-14:00 Writing Fast Tests Against Enterprise Rails 60
-15:00 Accounting-Driven Development 45
-15:45 Woah 30
-16:15 Programg in the Boondocks of Seattle 30
-17:00 Networking Event 60
-Name: Track 2
-09:00 Common Ruby Errors 45
-09:45 Ruby Errors from Mismatched Gem Versions 45
-10:30 Pair Programg vs Noise 45
-11:15 Ruby vs. Clojure for Back-End Development 30
-12:00 Lunch Event 60
-13:00 Clojure Ate Scala (on my project) 45
-13:45 Rails Magic 60
-14:45 Ruby on Rails: Why We Should Move On 60
-15:45 User Interface CSS in Rails Apps 30
-16:15 A World Without HackerNews 30
-17:00 Networking Event 60
+Track 1:
+09:00AM Ruby vs. Clojure for Back-End Development 30min
+09:30AM User Interface CSS in Rails Apps 30min
+10:00AM Lua for the Masses 30min
+10:30AM Writing Fast Tests Against Enterprise Rails 60min
+11:30AM Rails for Python Developers 5min
+12:00PM Lunch 
+01:00PM Accounting-Driven Development 45min
+01:45PM Ruby Errors from Mismatched Gem Versions 45min
+02:30PM Common Ruby Errors 45min
+03:15PM Woah 30min
+03:45PM Overdoing it in Python 45min
+05:00PM Networking Event 
+Track 2:
+09:00AM Programming in the Boondocks of Seattle 30min
+09:30AM Sit Down and Write 30min
+10:00AM Pair Programming vs Noise 45min
+10:45AM Ruby on Rails: Why We Should Move On 60min
+12:00PM Lunch 
+01:00PM Communicating Over Distance 60min
+02:00PM Ruby on Rails Legacy App Maintenance 60min
+03:00PM Clojure Ate Scala (on my project) 45min
+03:45PM Rails Magic 60min
+05:00PM Networking Event 
+Track 3:
+09:00AM A World Without HackerNews 30min
+12:00PM Lunch 
+05:00PM Networking Event 
