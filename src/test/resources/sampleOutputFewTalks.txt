@@ -1,0 +1,20 @@
+Name: Track 1
+09:00 A World Without HackerNews 30
+09:30 Ruby Errors from Mismatched Gem Versions 45
+10:15 Common Ruby Errors 45
+11:00 Lua for the Masses 30
+11:30 Rails for Python Developers 5
+12:00 Lunch Event 60
+13:00 Clojure Ate Scala (on my project) 45
+13:45 Communicating Over Distance 60
+14:45 Woah 30
+15:15 Overdoing it in Python 45
+16:00 Pair Programg vs Noise 45
+17:00 Networking Event 60
+Name: Track 2
+09:00 Ruby on Rails: Why We Should Move On 60
+10:00 Programg in the Boondocks of Seattle 30
+10:30 Ruby on Rails Legacy App Maintenance 60
+12:00 Lunch Event 60
+13:00 User Interface CSS in Rails Apps 30
+17:00 Networking Event 60

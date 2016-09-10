@@ -5,16 +5,23 @@ import java.util.List;
 public class ConferenceDisplay {
 
 	public static void printConferenceDetails(Conference conference) {
-		
+		StringBuilder outputter = buildConferenceOutputFormat(conference);
+		System.out.println(outputter.toString());
+	}
+
+	public static StringBuilder buildConferenceOutputFormat(Conference conference) {
+		StringBuilder outputter = new StringBuilder();
 		List<Track> tracks = conference.getTracks();
 		for (Track track : tracks) {
-			System.out.println("Name: " + track.getTrackName());
+			outputter.append(("Name: " + track.getTrackName())).append("\n");
 			List<Talk> talks = track.getTalks();
 			for (Talk talk : talks) {
-				System.out.println(talk.getStartTime() + " :::" + talk.getTitle() + "  Time " + talk.getDuration());
+				outputter.append(talk.getStartTime()).append(" ")
+						.append(talk.getTitle()).append(" ")
+						.append(talk.getDuration()).append("\n");
 			}
 		}
-		
+		return outputter;
 	}
 
 }

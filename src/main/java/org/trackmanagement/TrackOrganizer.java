@@ -33,7 +33,7 @@ public class TrackOrganizer {
 		return scheduledEvents;
 	}
 
-	public static Consumer<Talk> allotTalksForSession(List<Talk> scheduledEvents, Session currentSession) {
+	private static Consumer<Talk> allotTalksForSession(List<Talk> scheduledEvents, Session currentSession) {
 		return new Consumer<Talk>() {
 			private LocalTime currentTrackTime = currentSession.getStartTime();
 			@Override
